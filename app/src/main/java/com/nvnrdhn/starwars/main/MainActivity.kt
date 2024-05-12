@@ -1,4 +1,4 @@
-package com.nvnrdhn.starwars
+package com.nvnrdhn.starwars.main
 
 import android.os.Bundle
 import androidx.activity.compose.setContent

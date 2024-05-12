@@ -1,6 +1,7 @@
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.jetbrains.kotlin.android)
+    alias(libs.plugins.google.devtools.ksp)
 }
 
 android {
@@ -77,6 +78,13 @@ dependencies {
     implementation(libs.retrofit)
     implementation(libs.retrofit.converter.gson)
     implementation(libs.gson)
+
+    // Image Loading
+    implementation(libs.glide)
+    ksp(libs.glide.compiler)
+
+    implementation(libs.glide.integration.okhttp)
+    implementation(libs.glide.integration.compose)
 
     // Tests
     testImplementation(libs.junit)
