@@ -13,6 +13,9 @@ class StarWarsApplication : Application() {
     }
 
     private fun initDependencies() {
-
+        startKoin {
+            androidContext(this@StarWarsApplication)
+            modules(BaseDependencies.networkModule)
+        }
     }
 }
