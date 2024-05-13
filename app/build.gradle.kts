@@ -86,6 +86,13 @@ dependencies {
     implementation(libs.glide.integration.okhttp)
     implementation(libs.glide.integration.compose)
 
+    // DI
+    val koinBom = platform(libs.koin.bom)
+    implementation(koinBom)
+    implementation(libs.koin.core)
+    implementation(libs.koin.android)
+    implementation(libs.koin.androidx.compose)
+
     // Tests
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)

@@ -17,6 +17,7 @@ glide = "4.14.2"
 glideOkhttp = "4.14.0"
 glideCompose = "1.0.0-beta01"
 ksp = "1.9.23-1.0.19"
+koinBom = "3.5.6"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -52,6 +53,12 @@ glide = { group = "com.github.bumptech.glide", name = "glide", version.ref = "gl
 glide-compiler = { group = "com.github.bumptech.glide", name = "ksp", version.ref = "glide" }
 glide-integration-okhttp = { group = "com.github.bumptech.glide", name = "okhttp3-integration", version.ref = "glideOkhttp" }
 glide-integration-compose = { group = "com.github.bumptech.glide", name = "compose", version.ref = "glideCompose" }
+
+# DI
+koin-bom = { group = "io.insert-koin", name = "koin-bom", version.ref = "koinBom" }
+koin-core = { group = "io.insert-koin", name = "koin-core" }
+koin-android = { group = "io.insert-koin", name = "koin-android" }
+koin-androidx-compose = { group = "io.insert-koin", name = "koin-androidx-compose" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
