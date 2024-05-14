@@ -20,11 +20,11 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.lifecycle.viewmodel.compose.viewModel
 import com.bumptech.glide.integration.compose.ExperimentalGlideComposeApi
 import com.bumptech.glide.integration.compose.GlideImage
 import com.nvnrdhn.starwars.base.BaseLayout
 import com.nvnrdhn.starwars.datamodel.PeopleModel
-import org.koin.androidx.compose.koinViewModel
 
 
 @Preview
@@ -35,7 +35,7 @@ fun PeopleSearchLayout_Preview() {
 
 @Composable
 fun PeopleSearchLayout(
-    vm: PeopleSearchVM = koinViewModel()
+    vm: PeopleSearchVM = viewModel()
 ) {
     val lazyListState = rememberLazyListState()
 

@@ -8,8 +8,13 @@ import androidx.compose.runtime.setValue
 import com.nvnrdhn.starwars.base.BaseVM
 import com.nvnrdhn.starwars.datamodel.PeopleModel
 import com.nvnrdhn.starwars.repo.PeopleSearchRepo
+import dagger.hilt.android.lifecycle.HiltViewModel
+import javax.inject.Inject
 
-class PeopleSearchVM(private val repo: PeopleSearchRepo) : BaseVM() {
+@HiltViewModel
+class PeopleSearchVM @Inject constructor(
+    private val repo: PeopleSearchRepo
+) : BaseVM() {
 
     var peopleList = mutableStateListOf<PeopleModel>()
     var currentPage by mutableIntStateOf(1)
