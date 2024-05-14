@@ -12,6 +12,10 @@ import androidx.compose.foundation.lazy.rememberLazyListState
 import androidx.compose.foundation.text.BasicText
 import androidx.compose.material3.Card
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.derivedStateOf
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
@@ -35,7 +39,12 @@ fun PeopleSearchLayout(
 ) {
     val lazyListState = rememberLazyListState()
 
-    vm.init()
+    val shouldLoadMore by remember {
+        derivedStateOf {
+            val lastVisibleItem = lazyListState.layoutInfo.visibleItemsInfo.lastOrNull()
+            lastVisibleItem?.index != 0 && (lastVisibleItem?.index ?: 0) >= vm.peopleList.size - 2
+        }
+    }
 
     BaseLayout(vm = vm) {
         LazyColumn(
@@ -47,7 +56,19 @@ fun PeopleSearchLayout(
             items(vm.peopleList) {
                 PeopleItemLayout(it)
             }
+
+            if (vm.paginationLoading) item {
+                BasicText(text = "Loading...")
+            }
         }
+    }
+
+    LaunchedEffect(vm) {
+        vm.init()
+    }
+
+    LaunchedEffect(shouldLoadMore) {
+        if (shouldLoadMore) vm.loadNextPage()
     }
 }
 
