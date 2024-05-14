@@ -14,7 +14,7 @@ class PeopleSearchVM(private val repo: PeopleSearchRepo) : BaseVM() {
     var peopleList = mutableStateListOf<PeopleModel>()
     var currentPage by mutableIntStateOf(1)
     var paginationLoading by mutableStateOf(false)
-    private var maxCount = 0
+    var maxCount = 0
 
     fun init() {
         loading = true
