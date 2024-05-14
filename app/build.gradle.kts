@@ -2,6 +2,7 @@ plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.jetbrains.kotlin.android)
     alias(libs.plugins.google.devtools.ksp)
+    alias(libs.plugins.hilt.android)
 }
 
 android {
@@ -87,11 +88,8 @@ dependencies {
     implementation(libs.glide.integration.compose)
 
     // DI
-    val koinBom = platform(libs.koin.bom)
-    implementation(koinBom)
-    implementation(libs.koin.core)
-    implementation(libs.koin.android)
-    implementation(libs.koin.androidx.compose)
+    implementation(libs.hilt.android)
+    ksp(libs.hilt.compiler)
 
     // Tests
     testImplementation(libs.junit)
